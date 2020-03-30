@@ -4,6 +4,10 @@
 #include <map>
 using namespace std;
 
+/*
+ *简易计算器：支持加减乘除、double型、括号
+ */ 
+
 stack<double> OPND; //操作数栈
 stack<int> OPTR;    //运算符栈
 
