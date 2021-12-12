@@ -65,7 +65,7 @@ int main() {
 
     // for test2 test3
     Single::getInstance().printK();
-    Single::getInstance().printK();
+    SingleNew::getInstance().printK();
 
     return 0;
 }
