@@ -1,2 +1,5 @@
-.vscode
 .DS_Store
+.vscode
+.idea
+.SET_LOCAL_PATH.cmake
+cmake-build-debug
