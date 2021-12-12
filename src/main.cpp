@@ -1,71 +1,43 @@
 #include "common.h"
-#include "staticTest.h"
 
-// test1
-int function() {
-    static int i = 0; //局部静态变量
-    i++;
-    return i;
+// 接口
+class Printable {
+public:
+    virtual const string getClassName() = 0; //纯虚函数，子类没有实现则不能初始化
+};
+
+class Entity : public Printable {
+public:
+    virtual string getName() { return "Entity"; } //虚函数
+
+    const string getClassName() override { return "Entity"; } //实现接口
+};
+
+class Player : public Entity {
+private:
+    string m_name;
+public:
+    Player(const string &name) : m_name(name) {}
+
+    string getName() override { return m_name; } //覆写父类中 getName() 函数
+
+    const string getClassName() override { return "Player"; } //实现接口
+};
+
+void printName(Entity& e) {
+    cout << e.getName() << endl;
 }
 
-// test2
-// 单例类1
-class Single {
-private:
-    static Single single; // 静态变量声明，生命周期到程序结束
-
-public:
-    static Single &getInstance() { // 静态方法，获取此静态变量
-        return single;
-    }
-
-private:
-    int k = 0;
-
-public:
-    Single() = default;
-
-    ~Single() = default;
-
-    void printK() const {
-        cout << this->k << endl;
-    }
-};
-
-Single Single::single = Single(); // 静态变量定义
-
-// test3
-// 单例类2
-class SingleNew {
-public:
-    static SingleNew &getInstance() {
-        static SingleNew singleNew;
-        return singleNew;
-    }
-
-private:
-    int k = 0;
-public:
-    SingleNew() = default;
-
-    ~SingleNew() = default;;
-
-    void printK() const {
-        cout << this->k << endl;
-    }
-};
+void print(Printable& p) {
+    cout << p.getClassName() << endl;
+}
 
 int main() {
-
-    // for test1
-    cout << function() << endl;
-    cout << function() << endl;
-    cout << function() << endl;
-    cout << function() << endl;
-
-    // for test2 test3
-    Single::getInstance().printK();
-    SingleNew::getInstance().printK();
-
+    Entity e;
+    Player p("Player");
+    printName(e); // "Entity"
+    printName(p); // "Player"
+    print(e); // "Entity"
+    print(p); // "Player"
     return 0;
 }
