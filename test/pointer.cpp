@@ -9,10 +9,12 @@ void Increment(int *p)
 {
     (*p)++;
 }
+
 void Increment(int &a)
 {
     a++;
 }
+
 int main()
 {
     // int var = 8;
