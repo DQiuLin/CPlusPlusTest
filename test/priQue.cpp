@@ -1,16 +1,4 @@
-//
-// Created by 段秋琳 on 2022/1/10.
-//
-#include "iostream"
-#include "queue"
-#include "vector"
-
-using std::vector;
-using std::queue;
-using std::priority_queue;
-using std::cout;
-using std::cin;
-using std::endl;
+#include "common.h"
 
 static bool cmp(const std::pair<int, int> &a, const std::pair<int, int> &b) {
     return a.second < b.second;

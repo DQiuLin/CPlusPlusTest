@@ -1,7 +1,3 @@
-//
-// Created by 段秋琳 on 2021/12/12.
-//
-
 #ifndef CPLUSPLUSTEST_COMMON_H
 #define CPLUSPLUSTEST_COMMON_H
 
@@ -13,6 +9,7 @@
 #include <functional>
 #include <utility>
 #include <random>
+#include <memory>
 #include <cstring>
 #include <string>
 #include <array>
@@ -40,5 +37,6 @@ using std::queue;
 using std::stack;
 using std::unordered_set;
 using std::unordered_map;
+using std::priority_queue;
 
 #endif //CPLUSPLUSTEST_COMMON_H

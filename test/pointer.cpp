@@ -1,22 +1,14 @@
-#include <iostream>
-#include <cstring>
+#include "common.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
-
-void Increment(int *p)
-{
+void Increment(int *p) {
     (*p)++;
 }
 
-void Increment(int &a)
-{
+void Increment(int &a) {
     a++;
 }
 
-int main()
-{
+int main() {
     // int var = 8;
     // cout << var << endl; // 8
     // int *p = &var; // 取地址

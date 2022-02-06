@@ -1,6 +1,5 @@
 #include "common.h"
 
-
 void quickSort(vector<int>& nums) {
     stack<std::pair<int, int>> st;
     st.push({0, nums.size() - 1});
@@ -37,7 +36,7 @@ void quickSort(vector<int>& nums) {
 int main() {
     vector<int> nums{2, 5, 3, 7, 8, 5};
     quickSort(nums);
-    for (const auto& i: nums) {
+    for (const auto &i: nums) {
         cout << i << " ";
     }
     cout << endl;

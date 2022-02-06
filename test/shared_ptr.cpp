@@ -1,14 +1,15 @@
 #include "common.h"
-#include <memory>
 
 class Entity {
 public:
     Entity() {
         cout << "Construct Entity..." << endl;
     }
+
     ~Entity() {
         cout << "Destruct Entity..." << endl;
     }
+
     void Print() {
         cout << "print entity..." << endl;
     }

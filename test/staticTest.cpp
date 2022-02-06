@@ -1,6 +1,3 @@
-//
-// Created by 段秋琳 on 2021/12/12.
-//
 #include "common.h"
 #include "staticTest.h"
 
