@@ -1,5 +1,29 @@
 #include "common.h"
 
+/*------------------------ const 修饰函数形参 ------------------------*/
+// a在函数内部不可变；实参可以是 int 类型，也可以是 const int 类型
+void function1(const int a) {}
+// a在函数内不可变；实参可以是 int 类型，也可以是 const int 类型
+void function2(const int& a) {}
+// 可以修改a，不可以修改*a；实参可以是 int 类型，也可以是 const int 类型
+void function3(const int* a) {}
+// 可以修改*a，不可以修改a；实参只能是 int 类型
+void function4(int* const a) {}
+
+void test1() {
+    int a = 5;
+    const int b = 5;
+    function1(a);
+    function1(b);
+    function2(a);
+    function2(b);
+    function3(&a);
+    function3(&b);
+    function4(&a);
+//    function4(&b); //出错
+}
+
+/*--------------------- const 修饰成员函数和对象 ---------------------*/
 class Entity {
 private:
     int m_X, m_Y;
@@ -22,7 +46,13 @@ void PrintEntity(const Entity &e) {
     cout << e.GetX() << endl;
 }
 
-int main() {
+void test2() {
+    Entity e{};
+    PrintEntity(e);
+}
+
+/*------------------------ const 修饰指针引用 ------------------------*/
+void test3() {
     const int MAX_AGE = 90;
 
     //表示指针所指向的值是const类型
@@ -38,12 +68,17 @@ int main() {
     *c = 2;
     std::cout << *c << std::endl;
 
-    Entity e;
+    int x = 0;
+    const int y = 0;
+    const int &t1 = x;
+    const int &t2 = y;
+    int &t3 = x;
+//    int &t4 = y; //错误，试图将一个非常量引用指向一个常量对象
+}
 
-    int *x1, x2;
-    x1 = &x2;
-    *x1 = 2;
-    cout << x1 << " " << x2 << endl;
-
+int main() {
+    test1();
+    test2();
+    test3();
     return 0;
 }

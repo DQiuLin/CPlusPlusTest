@@ -20,3 +20,12 @@ MAIN
 //    LOG("Hello!");
 //    return 0;
 //}
+
+//#define用法例子：
+#define f(x) x*x
+int function() {
+    int a = 6, b = 2, c;
+    c = f(a) / f(b);
+    printf("%d\n", c); //36
+    return 0;
+}
